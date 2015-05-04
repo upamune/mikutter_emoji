@@ -1,0 +1,9 @@
+---
+slug: :emoji
+depends:
+  mikutter: 3.2.2
+  plugin: []
+version: '1.0'
+author: jajkeqos
+name: emoji
+description: ":emoji:  = >  emoji"
