@@ -3,21 +3,24 @@
 require 'gemoji'
 
 Plugin.create(:emoji) do
-  on_update do |service, messages|
-    messages.each do |msg|
-      if msg.to_s =~ /:([\w+-]+):/ # :hoge: の文字列があったら
-        emoji = Emoji.find_by_alias($1).raw
-        if emoji # 絵文字があったら
-          p emoji
-          newmsg = msg.to_s.gsub(/:([\w+-]+):/, emoji) # :hoge: を絵文字に変換する
-          p newmsg
-          newmsg
-        else
-          msg.to_s
+
+  # 投稿する際に:emoji:があれば絵文字に置き換える
+  filter_gui_postbox_post do |gui_postbox|
+    text = Plugin.create(:gtk).widgetof(gui_postbox).widget_post.buffer.text
+    if text =~ /:([\w+-]+):/
+      e = text.scan(/:([\w+-]+):/)
+      e.flatten!
+      e.each do |emo|
+        emoji = Emoji.find_by_alias(emo)
+        if emoji # マッチしたエイリアスの絵文字があったら
+          text = text.to_s.gsub(/:#{emo}:/, emoji.raw)
         end
-      else
-        msg.to_s
       end
     end
+    Service.primary.post :message => text
+    Plugin.call(:before_postbox_text, text)
+    Plugin.create(:gtk).widgetof(gui_postbox).widget_post.buffer.text=''
+    Plugin.filter_cancel!
   end
+
 end
