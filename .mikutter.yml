@@ -1,5 +1,5 @@
 ---
-slug: :emoji
+slug: :mikutter_emoji
 depends:
   mikutter: 3.2.2
   plugin: []
