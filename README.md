@@ -1,6 +1,8 @@
 ## これなに
 SlackとかGithubで使えるような ```:emoji:``` 形式の書式をサポートします。投稿時にこれが含まれていると自動的に変換されます。
 
+![](https://raw.githubusercontent.com/jajkeqos/mikutter_emoji/gh-pages/img/demo.gif)
+
 使える絵文字一覧 => [EMOJI CHEAT SHEET](http://www.emoji-cheat-sheet.com/)
 
 ## 依存関係
