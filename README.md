@@ -10,10 +10,7 @@ gem gemoji
 
 ## インストール
 ```
-gem install gemoji
-mkdir -p ~/.mikutter/plugin
-cd ~/.mikutter/plugin
-git clone git@github.com:jajkeqos/mikutter_emoji.git mikutter_emoji
+gem install gemoji &&  mkdir -p ~/.mikutter/plugin && cd ~/.mikutter/plugin && git clone git@github.com:jajkeqos/mikutter_emoji.git mikutter_emoji
 ```
 
 ## ToDo
