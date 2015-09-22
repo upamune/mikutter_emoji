@@ -10,7 +10,9 @@ gem gemoji
 
 ## インストール
 ```
-gem install gemoji &&  mkdir -p ~/.mikutter/plugin && cd ~/.mikutter/plugin && git clone git@github.com:jajkeqos/mikutter_emoji.git mikutter_emoji
+$ mkdir -p ~/.mikutter/plugin && cd ~/.mikutter/plugin && git clone git@github.com:upamune/mikutter_emoji.git mikutter_emoji
+$ cd /opt/mikutter && bundle install
+
 ```
 
 ## ToDo
